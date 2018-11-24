@@ -29,5 +29,15 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-data-redis')
     implementation('org.springframework.boot:spring-boot-starter-quartz')
     implementation('org.apache.httpcomponents:httpclient:4.5.6')
+
+    // Eureka Client
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Finchley.SR2'
+    }
 }

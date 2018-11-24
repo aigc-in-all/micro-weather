@@ -28,7 +28,8 @@ dependencies {
     // Eureka Client
     implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
     // 一定要加，否则启动失败
-    compile('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
