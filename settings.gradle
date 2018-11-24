@@ -1,0 +1,6 @@
+rootProject.name = 'micro-weather'
+include 'weather-city-server'
+include 'weather-collection-server'
+include 'weather-data-server'
+include 'weather-report-server'
+
