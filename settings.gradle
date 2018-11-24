@@ -4,4 +4,5 @@ include 'weather-collection-server'
 include 'weather-data-server'
 include 'weather-report-server'
 include 'micro-weather-eureka-server'
+include 'micro-weather-eureka-client'
 
