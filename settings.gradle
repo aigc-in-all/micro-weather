@@ -9,4 +9,5 @@ include 'micro-weather-eureka-client-feign'
 include 'micro-weather-eureka-client-zuul'
 include 'weather-eureka-client-zuul'
 include 'micro-weather-config-server'
+include 'micro-weather-config-client'
 
