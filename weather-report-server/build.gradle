@@ -34,6 +34,9 @@ dependencies {
     // Feign
     implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
 
+    // Hystrix
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-hystrix')
+
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 

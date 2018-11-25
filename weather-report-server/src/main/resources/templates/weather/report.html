@@ -20,34 +20,44 @@
                     th:selected="${city.id eq reportModel.cityId}"></option>
         </select>
     </div>
-    <div class="row">
-        <h1 class="text-success" th:text="${reportModel.report.city}">城市名称</h1>
-    </div>
-    <div class="row">
-        <p>
-            空气质量指数：<span th:text="${reportModel.report.aqi}"></span>
-        </p>
-    </div>
-    <div class="row">
-        <p>
-            当前温度：<span th:text="${reportModel.report.wendu}"></span>
-        </p>
-    </div>
-    <div class="row">
-        <p>
-            温馨提示：<span th:text="${reportModel.report.ganmao}"></span>
-        </p>
+    <div th:if="${reportModel.report} != null">
+        <div class="row">
+            <h1 class="text-success" th:text="${reportModel.report.city}">城市名称</h1>
+        </div>
+        <div class="row">
+            <p>
+                空气质量指数：<span th:text="${reportModel.report.aqi}"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                当前温度：<span th:text="${reportModel.report.wendu}"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p>
+                温馨提示：<span th:text="${reportModel.report.ganmao}"></span>
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="card border-info" th:each="forecast: ${reportModel.report.forecast}">
+                <div class="card-body text-info">
+                    <p class="card-text" th:text="${forecast.date}">日期</p>
+                    <p class="card-text" th:text="${forecast.type}">天气类型</p>
+                    <p class="card-text" th:text="${forecast.high}">最高温度</p>
+                    <p class="card-text" th:text="${forecast.low}">最低温度</p>
+                    <p class="card-text" th:text="${forecast.fengxiang}">风向</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-        <div class="card border-info" th:each="forecast: ${reportModel.report.forecast}">
-            <div class="card-body text-info">
-                <p class="card-text" th:text="${forecast.date}">日期</p>
-                <p class="card-text" th:text="${forecast.type}">天气类型</p>
-                <p class="card-text" th:text="${forecast.high}">最高温度</p>
-                <p class="card-text" th:text="${forecast.low}">最低温度</p>
-                <p class="card-text" th:text="${forecast.fengxiang}">风向</p>
-            </div>
+    <div th:if="${reportModel.report} == null">
+        <div class="row">
+            <p>
+                天气数据API服务暂不可用
+            </p>
         </div>
     </div>
 </div>
