@@ -25,8 +25,13 @@ repositories {
 }
 
 dependencies {
-    // Eureka Server
-    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-server')
+    // Eureka Client
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    // 一定要加，否则启动失败
+    implementation('org.springframework.boot:spring-boot-starter-web')
+
+    // Feign
+    implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
 
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
