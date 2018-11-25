@@ -1,5 +1,6 @@
 package com.heqingbao.spring.cloud.weather.job;
 
+import com.heqingbao.spring.cloud.weather.service.CityClient;
 import com.heqingbao.spring.cloud.weather.service.WeatherDataCollectionService;
 import com.heqingbao.spring.cloud.weather.vo.City;
 import org.quartz.JobExecutionContext;
@@ -9,7 +10,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WeatherDataSyncJob extends QuartzJobBean {
@@ -19,6 +19,9 @@ public class WeatherDataSyncJob extends QuartzJobBean {
     @Autowired
     private WeatherDataCollectionService dataCollectionService;
 
+    @Autowired
+    private CityClient cityClient;
+
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
         logger.info("Weather Data Sync Job. Start!");
@@ -26,13 +29,8 @@ public class WeatherDataSyncJob extends QuartzJobBean {
         List<City> cityList = null;
 
         try {
-            // TODO: 2018/11/24 改为由城市数据API微服务提供数据
-//            cityList = cityDataService.listCity();
-
-            cityList = new ArrayList<>();
-            City city = new City();
-            city.setId("101280101");
-            cityList.add(city);
+            // 由城市数据API微服务提供数据
+            cityList = cityClient.listCity();
         } catch (Exception e) {
             logger.error("Exception!", e);
         }
