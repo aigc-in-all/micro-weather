@@ -10,4 +10,5 @@ include 'micro-weather-eureka-client-zuul'
 include 'weather-eureka-client-zuul'
 include 'micro-weather-config-server'
 include 'micro-weather-config-client'
+include 'micro-weather-eureka-client-feign-hystrix'
 
